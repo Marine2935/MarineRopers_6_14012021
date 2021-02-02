@@ -10,6 +10,7 @@ const storage = multer.diskStorage({
     destination: (req, file, callback) => {
         callback(null, 'images');
     },
+    // Renommage du fichier image reçu en intégrant la date pour éviter les doublons.
     filename: (req, file, callback) => {
         const name = file.originalname.split(' ').join('_');
         const extension = MIME_TYPES[file.mimetype];
